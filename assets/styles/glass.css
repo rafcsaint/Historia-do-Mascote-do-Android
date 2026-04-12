@@ -1,0 +1,255 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* -- VARIÁVEIS GLOBAIS -- */
+:root {
+	--azul: #99BFF2;
+	--azul-escuro: #85aadb;
+	--branco: #F0F1F2;
+	--verde: #80BF84;
+	--marrom: #734432;
+	--preto: #26110F;
+
+	--ftitulo: 'Lora', serif;
+	--fdefault: 'Open Sans', sans-serif;
+}
+
+/* -- RESET E BASE -- */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--azul);
+	font-family: var(--fdefault);
+	font-size: 1em;
+	line-height: 1.7;
+	color: var(--preto);
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--ftitulo);
+}
+
+/* -- LINKS — ordem LVHA -- */
+a:link {
+	color: var(--azul-escuro);
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:visited {
+	color: var(--marrom);
+}
+
+a:hover {
+	text-decoration: underline;
+	opacity: 0.8;
+}
+
+a:active {
+	opacity: 0.6;
+}
+
+/* -- HEADER -- */
+header {
+	background: linear-gradient(to bottom, var(--azul), var(--azul-escuro));
+	min-height: 80px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: var(--branco);
+	position: relative;
+}
+
+/* linha de brilho no topo do header */
+header::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+}
+
+header>h1 {
+	margin-bottom: 10px;
+}
+
+/* -- NAV -- */
+nav {
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	/* glassmorphism */
+	background: rgba(133, 170, 219, 0.35);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+}
+
+nav a:link,
+nav a:visited {
+	padding: 10px;
+	border-radius: 5px;
+	text-decoration: none;
+	color: var(--branco);
+	font-weight: normal;
+	transition: background 0.2s, color 0.2s;
+	opacity: 1;
+}
+
+nav a:hover {
+	color: var(--preto);
+	background: rgba(255, 255, 255, 0.3);
+	text-decoration: none;
+	opacity: 1;
+}
+
+/* -- MAIN -- */
+main {
+	background-color: rgba(240, 241, 242, 0.55);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	min-height: 320px;
+	max-width: 800px;
+	margin: 30px auto;
+	padding: 20px;
+	border-radius: 14px;
+	box-shadow:
+		0 8px 32px rgba(0, 0, 0, 0.1),
+		inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+main p {
+	line-height: 1.6;
+	margin: 15px 0;
+	text-align: justify;
+	text-indent: 30px;
+}
+
+main strong {
+	color: var(--marrom);
+}
+
+main a::after {
+	content: "\1F517";
+}
+
+/* -- IMAGENS -- */
+img {
+	width: 100%;
+}
+
+img.tamanho-unico {
+	min-width: 320px;
+	max-width: 400px;
+	display: block;
+	margin: auto;
+}
+
+/* -- VÍDEO (IFRAME) -- */
+.iframe-de-video {
+	background: rgba(153, 191, 242, 0.3);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+/* -- ASIDE -- */
+aside {
+	background: rgba(255, 255, 255, 0.35);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 14px;
+	box-shadow:
+		0 8px 32px rgba(0, 0, 0, 0.08),
+		inset 0 1px 0 rgba(255, 255, 255, 0.6);
+	padding: 20px;
+	margin-top: 20px;
+	position: relative;
+	overflow: hidden;
+}
+
+/* linha de brilho no topo do aside */
+aside::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+}
+
+aside>ul {
+	list-style-type: none;
+	columns: 2;
+}
+
+/* -- FOOTER -- */
+footer {
+	background: rgba(133, 170, 219, 0.4);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border-top: 1px solid rgba(255, 255, 255, 0.4);
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	text-align: center;
+}
+
+footer a:link,
+footer a:visited {
+	padding: 10px 4px;
+	border-radius: 5px;
+	text-decoration: none;
+	color: var(--branco);
+	font-weight: normal;
+	transition: color 0.3s;
+	opacity: 1;
+}
+
+footer a:hover {
+	color: var(--preto);
+	text-decoration: none;
+	opacity: 1;
+}
+
+/* -- RESPONSIVO -- */
+@media (max-width: 640px) {
+	aside {
+		width: 100%;
+		margin: 0 0 20px 0;
+	}
+
+	h1 {
+		font-size: 1.5rem;
+	}
+}
